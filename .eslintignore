@@ -1,0 +1,9 @@
+node_modules/
+*.json
+.npm/
+dist/
+*.html
+*.md
+*.log
+Dockerfile
+*.yml
