@@ -33,49 +33,56 @@ const config = {
         publicPath: "/dist/",
     },
     module: {
-        preLoaders: [{ test: /\.json$/, loader: "json" }],
-        loaders: [
+        rules: [
             {
-                test: /\.js$/,
-                include: APP_DIR,
-                // babel loader for ES6 tranpilation and
-                // react-hot for HMR of react components
-                // config for babel-loader is in .babelrc
-                loaders: ["react-hot-loader/webpack", "babel"],
-            },
-            {
-                test: /\.css$/,
-                loader: "style-loader!css-loader",
-            },
-            {
-                test: /\.scss$/,
-                loader: "style-loader!css-loader",
-            },
-            {
-                test: /\.png$/,
-                loader: "url-loader?limit=100000",
-            },
-            {
-                test: /\.jpg$/,
-                loader: "file-loader",
-            },
-            {
-                test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
-                loader: "url?limit=10000&mimetype=application/font-woff",
-            },
-            {
-                test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
-                loader: "url?limit=10000&mimetype=application/octet-stream",
-            },
-            {
-                test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
-                loader: "file",
-            },
-            {
-                test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
-                loader: "url?limit=10000&mimetype=image/svg+xml",
+                test: /\.(js|jsx)$/,
+                exclude: /node_modules/,
+                use: ["babel-loader"],
             },
         ],
+        // preLoaders: [{ test: /\.json$/, loader: "json" }],
+        // loaders: [
+        //     {
+        //         test: /\.js$/,
+        //         include: APP_DIR,
+        //         // babel loader for ES6 tranpilation and
+        //         // react-hot for HMR of react components
+        //         // config for babel-loader is in .babelrc
+        //         loaders: ["react-hot-loader/webpack", "babel"],
+        //     },
+        //     {
+        //         test: /\.css$/,
+        //         loader: "style-loader!css-loader",
+        //     },
+        //     {
+        //         test: /\.scss$/,
+        //         loader: "style-loader!css-loader",
+        //     },
+        //     {
+        //         test: /\.png$/,
+        //         loader: "url-loader?limit=100000",
+        //     },
+        //     {
+        //         test: /\.jpg$/,
+        //         loader: "file-loader",
+        //     },
+        //     {
+        //         test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
+        //         loader: "url?limit=10000&mimetype=application/font-woff",
+        //     },
+        //     {
+        //         test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
+        //         loader: "url?limit=10000&mimetype=application/octet-stream",
+        //     },
+        //     {
+        //         test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
+        //         loader: "file",
+        //     },
+        //     {
+        //         test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+        //         loader: "url?limit=10000&mimetype=image/svg+xml",
+        //     },
+        // ],
     },
     plugins: [HTMLWebpackPluginConfig, HotModuleReplacementPluginConfig, jQueryPluginConfig],
 }
